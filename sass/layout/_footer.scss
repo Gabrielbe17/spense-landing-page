@@ -1,0 +1,41 @@
+@use '../abstracts/index' as *;
+
+footer{
+    background-color: $primary;
+}
+.footer{
+    color: $white;
+    padding: 3.25em 0;
+
+    // All direct Chillds
+    & > *{
+        padding: 1em;
+    }
+   
+    // Footer Links
+    &__links{
+        ul{
+            span{
+                font-weight: 800;
+            }
+            span ~ li{
+                opacity: $opacity;
+                margin: .65em 0;
+            }
+        }
+
+
+        @media (min-width:530px) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+            align-content: center;
+        }
+    }
+
+    @media (min-width:$tablet) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+        align-content: center;
+        gap: 1.5em;
+    }
+}

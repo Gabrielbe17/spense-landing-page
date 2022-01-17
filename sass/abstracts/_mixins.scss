@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+
+// Flexbox
+@mixin flex ($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+// Responsive
+@mixin grid {
+    @media (min-width:$desktop){
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// Buttons
+@mixin btn {
+    display: inline-block;
+    background-color: $primary;
+    color: $white;
+    padding: .85em;
+}
+// Cta Articles
+@mixin cta {
+    a{
+        opacity: $opacity;
+    }
+    a, i{
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}

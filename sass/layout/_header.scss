@@ -1,0 +1,177 @@
+@use '../abstracts/index' as *;
+
+
+// General Styles
+html{
+    font-size: 16px;
+    overflow-x: hidden;
+}
+body{
+    font-family: 'Cabin', sans-serif;
+    overflow-x: hidden;
+}
+.container{
+    min-height: 100vh;
+    width: 100vw;
+
+    & > *{
+        padding: 0 1em;
+    }
+}
+.message{
+    background: $primary;
+    color: $white;
+    text-align: center;
+    padding: 1em;
+    span{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+h1{
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+section{
+    width: 100%;
+    max-width: 80em;
+    margin: 0 auto;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+.logo{
+    font-size: clamp(1.35rem, 3vw, 1.5rem);
+    cursor: pointer;
+}
+.btn{
+    border: none;
+    @include btn();
+    border-radius: .35em;
+    cursor: pointer;
+}
+li{
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: $primary;
+
+    &:visited{
+        color: $primary;
+    }
+}
+.img{
+    width: 100%;
+    height: auto;
+}
+p{
+    line-height: 1.55em;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+}
+.text{
+    color: $text;
+}
+// Header
+header{
+    background-color: $background;
+}
+.header{
+    nav{
+        @include flex(row, space-between);
+        padding: 1em;
+
+
+        & > div ul{
+            @include flex(column, center);
+            display: none;
+
+            @media (min-width:$tablet) {
+                all: inherit;
+                @include flex(row, flex-start);
+                list-style: none;
+                gap: 1em;
+            }
+        }
+
+
+        // Toggle menu
+        #toggle-menu{
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            @media (min-width:$tablet) {
+                display: none;
+            }
+        }
+    }
+
+    .hero{
+
+        @include flex(column, flex-start);
+        gap: 1em;
+        padding: 4em 0;
+
+        // Hero text section
+        &__text{
+            width: 100%;
+            @media (max-width:$desktop) {
+                order: 2;
+
+            }
+        }
+        // Hero Image Section
+        &__img{
+            height: 32em;
+            overflow: hidden;
+            border-radius: .65em;
+            width: 100%;
+            background: url(../../Assets/HeroImage-Mobile.png) no-repeat;
+            background-size: cover;
+
+            // Tablet Hero Image
+            @media (min-width:$tablet) {
+                background: url(../../Assets/HeroImage-Tablet.png) no-repeat;
+                background-size: cover;
+            }
+            @media (min-width:$desktop) {
+                background: url(../../Assets/HeroImage-Desktop.png) no-repeat;
+                background-size: cover;
+                width: 75%;
+                justify-self: end;
+            }
+        }
+
+        // Two columns
+        @include grid();
+
+        // List
+        ul > li {
+            @include flex(row, flex-start);
+            margin-bottom: .75em;
+        }
+        span{
+            margin-left: .65em;
+        }
+
+        // Input
+        form{
+            @include flex(row, flex-start);
+            flex-wrap: wrap;
+            gap: 1em;
+
+            // All direct children
+            & > *{
+                @media (max-width:365px) {
+                    width: 100%;
+                }
+            }
+            input{
+                padding: .75em;
+                border-radius: .25em;
+                border: 1px solid rgba(116, 116, 116, 0.397);
+            }
+        }
+    }
+}
