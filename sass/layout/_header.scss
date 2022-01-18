@@ -81,29 +81,84 @@ header{
     nav{
         @include flex(row, space-between);
         padding: 1em;
+        position: relative;
+        
 
+        .nav-menu{
+            @include flex(column, flex-start);
 
-        & > div ul{
-            @include flex(column, center);
+            // Active Class
             display: none;
-
-            @media (min-width:$tablet) {
-                all: inherit;
-                @include flex(row, flex-start);
-                list-style: none;
-                gap: 1em;
+            &.active{
+                display: flex;
             }
+            // Child elements
+            & > div{
+                @include flex(column, flex-start);
+
+                @media (min-width:$tablet) {
+                    all: inherit;
+                }
+            }
+            ul{
+                @include flex(column, flex-start);
+                gap: 1em;
+
+                @media (min-width:$tablet) {
+                    @include flex(row, center);
+                }
+            }
+            li{
+                @media (max-width:$tablet) {
+                    width: 100%;    
+                }
+            }
+
+            // Tablet Size
+            @media (min-width:$tablet) {
+                @include flex(row, flex-start);
+            }
+            @media (max-width:calc($tablet - 1px)) {
+                width: 100%;
+            }
+
+            .nav-links{
+                @media (min-width:$tablet) {
+                    margin-right: 6em;
+                }
+                
+            }
+            .nav-links, .nav-cta{
+                @media (max-width:calc($tablet - 1px)) {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            
         }
+       
+
 
 
         // Toggle menu
         #toggle-menu{
             border: none;
+            position: absolute;
+            top: 2.55em;
+            right: 1em;
             background: transparent;
             cursor: pointer;
+
             @media (min-width:$tablet) {
                 display: none;
             }
+        }
+
+        // Responsive Menu
+        @media (max-width: calc($tablet - 1px)) {
+            flex-wrap: wrap;
+            align-items: flex-start;
+            flex-direction: column;
         }
     }
 
@@ -127,16 +182,16 @@ header{
             overflow: hidden;
             border-radius: .65em;
             width: 100%;
-            background: url(../../Assets/HeroImage-Mobile.png) no-repeat;
+            background: url(../Assets/HeroImage-Mobile.png) no-repeat;
             background-size: cover;
 
             // Tablet Hero Image
             @media (min-width:$tablet) {
-                background: url(../../Assets/HeroImage-Tablet.png) no-repeat;
+                background: url(../Assets/HeroImage-Tablet.png) no-repeat;
                 background-size: cover;
             }
             @media (min-width:$desktop) {
-                background: url(../../Assets/HeroImage-Desktop.png) no-repeat;
+                background: url(../Assets/HeroImage-Desktop.png) no-repeat;
                 background-size: cover;
                 width: 75%;
                 justify-self: end;
