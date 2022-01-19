@@ -12,12 +12,11 @@
 
 
     &__logos{
-        background-repeat:repeat-x;
         @include flex(row, flex-start);
         gap: 1.65em;
         padding: 3.25em 0;
 
-        img{
+        & > img{
             width: 100%;
         }
 
@@ -31,7 +30,7 @@
             display: none;
 
             @media (min-width:$desktop) {
-                display: flex;
+                display: block;
             }
         }
     }
@@ -42,7 +41,6 @@
         padding: 1.5em 2em 0 1.5em;
         border-radius: .45em;
 
-        @include flex(column, flex-start);
         @include cta();
         //   Responsive Columns
         @include grid();
@@ -78,13 +76,10 @@
             }
         }
 
-
-
-
         @include cta();
+
         // Responsive Columns
-        @media (min-width:$desktop) {
-            @include flex(row, flex-start);
-        }
+        @include grid();
+        gap: 2em;
     }
 }

@@ -262,7 +262,6 @@ header {
   font-size: clamp(1.8rem, 3vw, 2.2rem);
 }
 .main__logos {
-  background-repeat: repeat-x;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -270,7 +269,7 @@ header {
   gap: 1.65em;
   padding: 3.25em 0;
 }
-.main__logos img {
+.main__logos > img {
   width: 100%;
 }
 @media (max-width: 750px) {
@@ -283,17 +282,13 @@ header {
 }
 @media (min-width: 1100px) {
   .main__logos .last-image ~ img {
-    display: flex;
+    display: block;
   }
 }
 .main__active {
   background: #F0EEEB;
   padding: 1.5em 2em 0 1.5em;
   border-radius: 0.45em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
 }
 .main__active a {
   opacity: 0.5;
@@ -323,6 +318,9 @@ header {
   background: url(../Assets/PhoneMockup-Mobile.png) no-repeat;
   background-size: contain;
 }
+.main__text-editor {
+  gap: 2em;
+}
 .main__text-editor > * {
   width: 100%;
 }
@@ -340,10 +338,9 @@ header {
 }
 @media (min-width: 1100px) {
   .main__text-editor {
-    display: flex;
-    flex-direction: row;
+    display: grid;
     align-items: center;
-    justify-content: flex-start;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
